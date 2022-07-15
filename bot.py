@@ -335,7 +335,7 @@ async def criticism_function(client, message):
             date = jdatetime.date.today().strftime("%d-%m-%Y")
             await client.send_message(admin,
                                       f"**📝ثبت پیشنهادات و انتقادات**\n"
-                                      f"📝نام و نام خانوادگی:{information[1]}\n📞تلفن:{information[2]}\n"
+                                      f"💠نام و نام خانوادگی:{information[1]}\n📞تلفن:{information[2]}\n"
                                       f"📆تاریخ:{date}\n📝متن پیام:{criticism.text}", reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -366,7 +366,7 @@ async def criticism_function(client, message):
         else:
             date = jdatetime.date.today().strftime("%d-%m-%Y")
             await client.send_message(admin, f"**📝ثبت پیشنهادات و انتقادات**\n"
-                                             f"از طرف کاربر 👤ناشناس\n📆تاریخ:{date}\ntext:{criticism.text}")
+                                             f"💠از طرف کاربر 👤ناشناس\n📆تاریخ:{date}\n📝متن پیام:{criticism.text}")
             await criticism.reply("""✅انتقاد یا پیشنهاد شما ثبت شد.
 🙏از اینکه به فکر دیار خود هستید متشکریم🙌
 همچنین میتوانید با 📝ثبت نام و ورود و ارسال طرح و پیشنهادات خود که به پیشرفت روستا کمک کند در 🔶قرعه کشی بهترین 
@@ -394,7 +394,7 @@ async def proposal_function(client, message):
             date = jdatetime.date.today().strftime("%d-%m-%Y")
             await client.send_message(admin,
                                       f"**📝ثبت طرح**\n"
-                                      f"📝نام و نام خانوادگی:{information[1]}\n📞تلفن:{information[2]}\n"
+                                      f"💠نام و نام خانوادگی:{information[1]}\n📞تلفن:{information[2]}\n"
                                       f"📆تاریخ:{date}\n📝متن پیام:{proposal.text}", reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -428,7 +428,7 @@ async def proposal_function(client, message):
         else:
             date = jdatetime.date.today().strftime("%d-%m-%Y")
             await client.send_message(admin, f"**📝ثبت طرح**\n"
-                                             f"از طرف کاربر 👤ناشناس\n📆تاریخ:{date}\ntext: {proposal.text}")
+                                             f"💠از طرف کاربر 👤ناشناس\n📆تاریخ:{date}\n📝متن پیام: {proposal.text}")
             await proposal.reply("""✅طرح شما ثبت شد.
 🙏از اینکه به فکر دیار خود هستید متشکریم🙌
 همچنین میتوانید با 📝ثبت نام و ورود و ارسال طرح و پیشنهادات خود که به پیشرفت روستا کمک کند در 🔶قرعه کشی بهترین 
