@@ -1,0 +1,4 @@
+pyrogram==2.0.30
+pyromod==1.5
+openpyxl==3.0.3
+jdatetime==4.1.0
