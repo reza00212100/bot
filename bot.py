@@ -187,7 +187,7 @@ async def show_message_saved(client, message):
     switch = 1
     for row in sheet.iter_rows(values_only=True):
         if row[1] == "save":
-            text += f"**📝 متن پیام:** {row[2]}\n➖➖➖➖➖➖➖➖➖➖➖\n"
+            text += f"{row[2]}\n➖➖➖➖➖➖➖➖➖➖➖\n"
             if 1000 < len(text) < 1550:
                 await message.reply(f"**📩پیام های ذخیره شده📩**\n{text}")
                 text = ""
@@ -208,7 +208,7 @@ async def show_message_better(client, message):
     switch = 1
     for row in sheet.iter_rows(values_only=True):
         if row[1] == "better":
-            text += f"**📝 متن پیام:** {row[2]}\n➖➖➖➖➖➖➖➖➖➖➖\n"
+            text += f"{row[2]}\n➖➖➖➖➖➖➖➖➖➖➖\n"
             if 1000 < len(text) < 1550:
                 await message.reply(f"**🥇پیام های برتر🥇**\n{text}")
                 text = ""
