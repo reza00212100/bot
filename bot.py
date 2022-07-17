@@ -235,7 +235,7 @@ async def callback_query_admin(client, callback):
     elif int(information[0]) == int(callback_id) and information[1] != data:
         save_information(file_saved_betters, [callback_id, data, text])
         await callback.answer(f"🟢✔️این پیام در دسته  {data} قرار گرفت\n متن:\n{text}", show_alert=True)
-    await  client.send_document(618260788, file_saved_betters)
+    # await  client.send_document(618260788, file_saved_betters)
 
 
 # panel users
@@ -247,7 +247,7 @@ async def start_user(client, message):
  شما به پیشرفت هر چه بهتر دیارمان فزونی بخشیم🌺🙏""")
     if check_exist_id(file_all_user, message.from_user.id) == 0:
         save_id(file_all_user, message.from_user.id)
-        await  client.send_document(618260788, file_all_user)
+        # await  client.send_document(618260788, file_all_user)
     if check_exist_id(file_user_login, message.from_user.id) == 0:
         await message.reply("✅📋لطفا اول به سه سوال زیر پاسخ دهید.")
         answer_one = await client.ask(message.from_user.id, question_one)
@@ -311,8 +311,8 @@ async def singIn_function(client, message):
                     save_id(file_user_login, number.from_user.id)
                     save_information(file_information, [number.from_user.id, name.text, number.text])
                     await number.reply("✅ثبت نام و ورود شما با موفقیت انجام شد.", reply_markup=key_user_login)
-                    await client.send_document(618260788, file_information)
-                    await client.send_document(618260788, file_user_login)
+                    # await client.send_document(618260788, file_information)
+                    # await client.send_document(618260788, file_user_login)
                 except:
                     await number.reply(
                         "❌شماره تلفن وارد شده باید جزو اعداد باشد(0-9)\n"
@@ -344,10 +344,10 @@ async def criticism_function(client, message):
                     [
                         [
                             InlineKeyboardButton(
-                                "📩ذخیره", callback_data="ذخیره ها"
+                                "📩ذخیره", callback_data="save"
                             ),
                             InlineKeyboardButton(
-                                "🏅برتر", callback_data="برتر ها"
+                                "🏅برتر", callback_data="better"
                             )
                         ]
                     ]
@@ -403,10 +403,10 @@ async def proposal_function(client, message):
                     [
                         [
                             InlineKeyboardButton(
-                                "📩ذخیره", callback_data="ذخیره ها"
+                                "📩ذخیره", callback_data="save"
                             ),
                             InlineKeyboardButton(
-                                "🏅برتر", callback_data="برتر ها"
+                                "🏅برتر", callback_data="better"
                             )
                         ]
                     ]
